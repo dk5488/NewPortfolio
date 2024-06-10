@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
-import backgroundImage from '../assets/image-bg.png';
+import backgroundImage from "../assets/blob1.png";
+import myImage from "../assets/my-img.png";
+import c from "../assets/c.png";
+import node from "../assets/node.png";
+import js from "../assets/js.png";
+import react1 from "../assets/react.png";
+import html1 from "../assets/html.png";
+import code from "../assets/coding.png"
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
@@ -27,7 +34,7 @@ function Landing() {
 
   return (
     <div className="w-full py-5">
-      <div className="mx-auto relative flex flex-row justify-stretch  w-4/5">
+      <div className="mx-auto relative flex flex-row justify-stretch  w-4/5  items-center">
         {/*Left Section */}
         <div className="flex flex-col gap-3 font-black w-2/4">
           <div>
@@ -68,7 +75,7 @@ function Landing() {
                     "FULL STACK WEB",
                     0,
                     "FULL STACK WEB DEVELOPER",
-                    0
+                    0,
                   ]}
                   speed={50}
                   style={{ fontSize: "1.5em" }}
@@ -87,7 +94,7 @@ function Landing() {
                   whiteSpace: "pre-line",
                   height: "195px",
                   display: "block",
-                  fontSize: "1em"
+                  fontSize: "1em",
                 }}
                 sequence={[
                   `I am a\nFull Stack\n Web Developer\nFrom India`,
@@ -96,23 +103,40 @@ function Landing() {
                 repeat={Infinity}
                 cursor={false}
                 speed={50}
-                
               />
             </div>
           )}
         </div>
 
         {/*Right Section */}
-        <div className="relative">
+        {/*Right Section */}
+        <div className="relative h-auto overflow-hidden">
           {/*bg-image */}
-          <div className="relative">
-             <img src={backgroundImage} alt="img-bg"></img>
+          <div className=" relative w-full h-full">
+            <img
+              src={backgroundImage}
+              alt="img-bg"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/*My-image */}
-          <div className=" absolute">
-
+          <div className="absolute top-0 left-0 w-full h-full ">
+            <img
+              src={myImage}
+              alt="Divy"
+              className="w-full h-full object-cover  absolute rounded-lg"
+            />
           </div>
+
+          <img></img>
+          <img></img>
+          <img></img>
+          <img></img>
+          <img></img>
+          <img></img>
+          <img></img>
+
         </div>
       </div>
     </div>
