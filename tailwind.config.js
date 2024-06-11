@@ -129,6 +129,27 @@ module.exports = {
         maxContent: "1260px",
         maxContentTab: "650px"
       },
+      keyframes: {
+        moveIcon: {
+          '0%': {
+            transform: 'translate(0, 0)'
+          },
+          '25%': {
+            transform: 'translate(-50px, 50px)'
+          },
+          
+          '75%':{
+            transform:'translate(50px,-50px)'
+          },
+          '100%':{
+            transform:'translate(0,0)'
+          },
+        },
+      },
+      animation: {
+        moveIcon: 'moveIcon 3s linear infinite' // You can adjust the duration and timing function here
+      }
+    
     },
   },
   plugins: [],

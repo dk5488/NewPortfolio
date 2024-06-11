@@ -110,7 +110,7 @@ function Landing() {
 
         {/*Right Section */}
         {/*Right Section */}
-        <div className="relative h-auto overflow-hidden">
+        <div className="relative h-auto overflow-hidden flex justify-center items-center">
           {/*bg-image */}
           <div className=" relative w-full h-full">
             <img
@@ -129,13 +129,13 @@ function Landing() {
             />
           </div>
 
-          <img></img>
-          <img></img>
-          <img></img>
-          <img></img>
-          <img></img>
-          <img></img>
-          <img></img>
+
+          <img src={c} alt="C" className="absolute w-10 h-10 animate-moveIcon left-1 top-2"   />          
+          <img className="absolute top-0 right-0  w-10" src={node} alt="C++"></img>
+          <img className="absolute bottom-0 left-0  w-10" src={js} alt="C++"></img>
+          <img className="absolute bottom-0 right-0  w-10" src={react1} alt="C++"></img>
+          <img className="absolute top-0 left-1/2  w-10" src={html1} alt="C++"></img>
+          <img className="absolute bottom-0 left-1/2  w-10" src={code} alt="C++"></img>
 
         </div>
       </div>
