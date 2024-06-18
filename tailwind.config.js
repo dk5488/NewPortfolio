@@ -127,29 +127,64 @@ module.exports = {
     extend: {
       maxWidth: {
         maxContent: "1260px",
-        maxContentTab: "650px"
+        maxContentTab: "650px",
       },
       keyframes: {
         moveIcon: {
-          '0%': {
-            transform: 'translate(0, 0)'
+          "0%": {
+            transform: "translate(0, 0)",
           },
-          '25%': {
-            transform: 'translate(-50px, 50px)'
+          "25%": {
+            transform: "translate(-50px, -50px)",
+          },
+
+          "75%": {
+            transform: "translate(50px,50px)",
+          },
+          "100%": {
+            transform: "translate(0,0)",
+          },
+        },
+
+        facus: {
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(-45deg) scale(1.25)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+
+        rotate:{
+          "0%":{
+            transform:"rotate(0deg)",
+
+          },
+          "100%":{
+            transform:"rotate(360deg)",
           },
           
-          '75%':{
-            transform:'translate(50px,-50px)'
+        },
+
+        moveIcon1: {
+          "0%": {
+            transform: "translate(0, 0)",
           },
-          '100%':{
-            transform:'translate(0,0)'
+          "25%": {
+            transform: "translate(50px, 50px)",
+          },
+
+          "75%": {
+            transform: "translate(-50px,-50px)",
+          },
+          "100%": {
+            transform: "translate(0,0)",
           },
         },
       },
       animation: {
-        moveIcon: 'moveIcon 3s linear infinite' // You can adjust the duration and timing function here
-      }
-    
+        moveIcon: "moveIcon 6s linear infinite",
+        facus: "facus 5s linear infinite",
+        rotate:"rotate 4s linear infinite",
+        moveIcon1:"moveIcon1 6s linear infinite"
+      },
     },
   },
   plugins: [],

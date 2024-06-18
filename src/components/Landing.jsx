@@ -7,7 +7,7 @@ import node from "../assets/node.png";
 import js from "../assets/js.png";
 import react1 from "../assets/react.png";
 import html1 from "../assets/html.png";
-import code from "../assets/coding.png"
+import code from "../assets/coding.png";
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
@@ -34,6 +34,7 @@ function Landing() {
 
   return (
     <div className="w-full py-5">
+      {/*Hero*/}
       <div className="mx-auto relative flex flex-row justify-stretch  w-4/5  items-center">
         {/*Left Section */}
         <div className="flex flex-col gap-3 font-black w-2/4">
@@ -110,7 +111,7 @@ function Landing() {
 
         {/*Right Section */}
         {/*Right Section */}
-        <div className="relative h-auto overflow-hidden flex justify-center items-center">
+        <div className="relative h-auto  flex justify-center items-center">
           {/*bg-image */}
           <div className=" relative w-full h-full">
             <img
@@ -129,15 +130,36 @@ function Landing() {
             />
           </div>
 
+          <img
+            src={c}
+            alt="C"
+            className="absolute w-14 h-14 left-8 bottom-8 animate-moveIcon1"
+            
+          />
+          
+          <img
+            src={js}
+            alt="JavaScript"
+            className="absolute w-20 h-20 left-8 top-8 animate-facus"
+          />
 
-          <img src={c} alt="C" className="absolute w-10 h-10 animate-moveIcon left-1 top-2"   />          
-          <img className="absolute top-0 right-0  w-10" src={node} alt="C++"></img>
-          <img className="absolute bottom-0 left-0  w-10" src={js} alt="C++"></img>
-          <img className="absolute bottom-0 right-0  w-10" src={react1} alt="C++"></img>
-          <img className="absolute top-0 left-1/2  w-10" src={html1} alt="C++"></img>
-          <img className="absolute bottom-0 left-1/2  w-10" src={code} alt="C++"></img>
+          <img
+            src={react1}
+            alt="React"
+            className="absolute w-20 h-20 right-8 bottom-8 animate-rotate"
+          />
 
+          <img
+            src={html1}
+            alt="HTML"
+            className="absolute w-14 h-14  right-11 top-11 animate-moveIcon"
+          />
         </div>
+      </div>
+
+      {/*About Section */}
+      <div className="mx-auto">
+        
       </div>
     </div>
   );
