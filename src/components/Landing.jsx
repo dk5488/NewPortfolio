@@ -3,18 +3,30 @@ import { TypeAnimation } from "react-type-animation";
 import backgroundImage from "../assets/blob1.png";
 import myImage from "../assets/my-img.png";
 import c from "../assets/c.png";
-import node from "../assets/node.png";
 import js from "../assets/js.png";
 import react1 from "../assets/react.png";
 import html1 from "../assets/html.png";
-import code from "../assets/coding.png";
 import dev from "../assets/new_dev.png";
-import arrow from "../assets/rotated_arrow.png"
+import arrow from "../assets/rotated_arrow.png";
+import { useForm } from 'react-hook-form';
+
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
   const typeAnimRef = useRef(null);
-  const [on,setOn]=useState(0);
+  const [isFormVisible, setFormVisible] = useState(false);
+  const formRef = useRef();
+  
+
+  function handleClick() {
+    setFormVisible(true);
+  }
+
+  const handleClickOutside = (event) => {
+    if (formRef.current && !formRef.current.contains(event.target)) {
+      setFormVisible(false);
+    }
+  };
 
   useEffect(() => {
     // This effect now runs on the FIRST render AND when renderNumber changes
@@ -35,7 +47,17 @@ function Landing() {
     }
   }, [renderNumber]);
 
-  
+  useEffect(() => {
+    if (isFormVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isFormVisible]);
 
   return (
     <div className="w-full py-5 overflow-y-hidden">
@@ -164,12 +186,23 @@ function Landing() {
       {/*About Section */}
       <div className="mx-auto mt-52">
         {/* Heading */}
-        <div className=" absolute  left-1/2 -translate-x-32 "> <span className=" text-7xl font-extrabold">About Me</span></div>
-        <img src={arrow} alt="arrow" className=" absolute w-16 h-16 right-1/3 translate-x-16 translate-y-10"></img>
+        <div className=" absolute  left-1/2 -translate-x-32 ">
+          {" "}
+          <span className=" text-7xl font-extrabold">About Me</span>
+        </div>
+        <img
+          src={arrow}
+          alt="arrow"
+          className=" absolute w-16 h-16 right-1/3 translate-x-16 translate-y-10"
+        ></img>
 
         <div className=" flex flex-row items-center justify-center gap-12 overflow-y-hidden">
           {/*about-Image*/}
-          <img src={dev} alt="developer icon" className=" rounded-full  h-1/3 w-1/3"></img>
+          <img
+            src={dev}
+            alt="developer icon"
+            className=" rounded-full  h-1/3 w-1/3"
+          ></img>
 
           {/*Description */}
           <div className=" w-96 overflow-y-hidden">
@@ -181,7 +214,16 @@ function Landing() {
               utilizing these technologies.
             </p>
 
-            <button className=" bg-cerise-red-500" onClick={setVisibility()}>Contact Me</button>
+            <button className=" bg-cerise-red-500" onClick={handleClick()}>
+              Contact Me
+            </button>
+            {
+              isFormVisible && (
+                <div className=" absolute flex-col">
+                   
+                </div>
+              )
+            }
           </div>
         </div>
       </div>
