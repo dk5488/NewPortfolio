@@ -35,9 +35,7 @@ function Landing() {
     }
   }, [renderNumber]);
 
-  function setVisibility(){
-    if()
-  }
+  
 
   return (
     <div className="w-full py-5 overflow-y-hidden">
