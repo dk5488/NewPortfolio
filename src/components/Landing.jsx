@@ -8,10 +8,13 @@ import js from "../assets/js.png";
 import react1 from "../assets/react.png";
 import html1 from "../assets/html.png";
 import code from "../assets/coding.png";
+import dev from "../assets/new_dev.png";
+import arrow from "../assets/rotated_arrow.png"
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
   const typeAnimRef = useRef(null);
+  const [on,setOn]=useState(0);
 
   useEffect(() => {
     // This effect now runs on the FIRST render AND when renderNumber changes
@@ -32,8 +35,12 @@ function Landing() {
     }
   }, [renderNumber]);
 
+  function setVisibility(){
+    if()
+  }
+
   return (
-    <div className="w-full py-5">
+    <div className="w-full py-5 overflow-y-hidden">
       {/*Hero*/}
       <div className="mx-auto relative flex flex-row justify-stretch  w-4/5  items-center">
         {/*Left Section */}
@@ -134,9 +141,8 @@ function Landing() {
             src={c}
             alt="C"
             className="absolute w-14 h-14 left-8 bottom-8 animate-moveIcon1"
-            
           />
-          
+
           <img
             src={js}
             alt="JavaScript"
@@ -158,8 +164,28 @@ function Landing() {
       </div>
 
       {/*About Section */}
-      <div className="mx-auto">
-        
+      <div className="mx-auto mt-52">
+        {/* Heading */}
+        <div className=" absolute  left-1/2 -translate-x-32 "> <span className=" text-7xl font-extrabold">About Me</span></div>
+        <img src={arrow} alt="arrow" className=" absolute w-16 h-16 right-1/3 translate-x-16 translate-y-10"></img>
+
+        <div className=" flex flex-row items-center justify-center gap-12 overflow-y-hidden">
+          {/*about-Image*/}
+          <img src={dev} alt="developer icon" className=" rounded-full  h-1/3 w-1/3"></img>
+
+          {/*Description */}
+          <div className=" w-96 overflow-y-hidden">
+            <p className=" font-mono text-lg">
+              I have a strong foundation in frontend and backend development,
+              proficient in React, Node.js, TypeScript, Java, Python, C++, and
+              JavaScript. Experienced with SQL and MongoDB, and tools like
+              GitHub and Postman, I have built various applications and systems
+              utilizing these technologies.
+            </p>
+
+            <button className=" bg-cerise-red-500" onClick={setVisibility()}>Contact Me</button>
+          </div>
+        </div>
       </div>
     </div>
   );
