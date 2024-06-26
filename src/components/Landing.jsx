@@ -7,8 +7,8 @@ import js from "../assets/js.png";
 import react1 from "../assets/react.png";
 import html1 from "../assets/html.png";
 import dev from "../assets/new_dev.png";
-import arrow from "../assets/rotated_arrow.png";
-import { useForm } from 'react-hook-form';
+import ContactUsForm from "../components/ContactUsForm"
+import arrow from "../assets/rotated_arrow.png"
 
 
 function Landing() {
@@ -20,6 +20,10 @@ function Landing() {
 
   function handleClick() {
     setFormVisible(true);
+  }
+
+  function handleSubmitClick(){
+    setFormVisible(false);
   }
 
   const handleClickOutside = (event) => {
@@ -196,7 +200,7 @@ function Landing() {
           className=" absolute w-16 h-16 right-1/3 translate-x-16 translate-y-10"
         ></img>
 
-        <div className=" flex flex-row items-center justify-center gap-12 overflow-y-hidden">
+        <div className=" flex flex-row items-center justify-center gap-12 overflow-y-hidden relative">
           {/*about-Image*/}
           <img
             src={dev}
@@ -214,13 +218,13 @@ function Landing() {
               utilizing these technologies.
             </p>
 
-            <button className=" bg-cerise-red-500" onClick={handleClick()}>
+            <button className=" bg-cerise-red-500" onClick={handleClick}>
               Contact Me
             </button>
             {
               isFormVisible && (
-                <div className=" absolute flex-col">
-                   
+                <div className=" absolute flex-col top-0 w-1/4 -translate-x-52" ref={formRef}>
+                   <ContactUsForm handleSubmitClick={handleSubmitClick}/>
                 </div>
               )
             }

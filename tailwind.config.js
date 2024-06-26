@@ -199,6 +199,12 @@ module.exports = {
         rotate:"rotate 4s linear infinite",
         moveIcon1:"moveIcon1 6s linear infinite"
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+        'custom-gradient1': 'linear-gradient(90deg, #4C516D 0%, #3F5EFB 100%)',
+        'custom-gradient2': 'linear-gradient(90deg, #B0C4DE 0%, #3F5EFB 100%)',
+        
+      },
     },
   },
   plugins: [],
