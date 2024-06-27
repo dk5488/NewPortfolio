@@ -1,16 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import axiosInstance from "../axios/axiosConfig";
+function ContactForm() {
+  const { register,  formState: { errors } } = useForm();
 
-function ContactForm({handleSubmitClick}) {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data); 
+   const handleSubmit = async(e) => {
+    console.log(e);
+    e.preventDefault();
+    try {
+      await axiosInstance.post('/contact',e);
+      alert("Query Submitted successfully")
+    } catch (error) {
+      console.log("Message not send",error);
+      alert("Server Facing some issues try again later");
+    }
   };
 
   return (
     <form 
-      onSubmit={handleSubmit(onSubmit)} 
+      onSubmit={handleSubmit} 
       className=" bg-custom-gradient1 opacity-75 p-8 rounded-lg "
     >
       <div className="mb-4 rounded-full">
