@@ -7,22 +7,24 @@ import js from "../assets/js.png";
 import react1 from "../assets/react.png";
 import html1 from "../assets/html.png";
 import dev from "../assets/new_dev.png";
-import ContactUsForm from "../components/ContactUsForm"
-import arrow from "../assets/rotated_arrow.png"
-
+import ContactUsForm from "../components/ContactUsForm";
+import arrow from "../assets/rotated_arrow.png";
+import { skills1 as skill1 } from "../data/skillList1.js";
+import {skills2 as skill2} from "../data/skillList2.js";
+import ReactStars from "react-stars";
+import AnimatedStars from "./AnimatedStars.jsx";
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
   const typeAnimRef = useRef(null);
   const [isFormVisible, setFormVisible] = useState(false);
   const formRef = useRef();
-  
 
   function handleClick() {
     setFormVisible(true);
   }
 
-  function handleSubmitClick(){
+  function handleSubmitClick() {
     setFormVisible(false);
   }
 
@@ -221,14 +223,46 @@ function Landing() {
             <button className=" bg-cerise-red-500" onClick={handleClick}>
               Contact Me
             </button>
-            {
-              isFormVisible && (
-                <div className=" absolute flex-col top-0 w-1/4 -translate-x-52" ref={formRef}>
-                   <ContactUsForm handleSubmitClick={handleSubmitClick}/>
-                </div>
-              )
-            }
+            {isFormVisible && (
+              <div
+                className=" absolute flex-col top-0 w-1/4 -translate-x-52"
+                ref={formRef}
+              >
+                <ContactUsForm handleSubmitClick={handleSubmitClick} />
+              </div>
+            )}
           </div>
+        </div>
+      </div>
+
+      {/* Skills Section */}
+      <div className=" flex flex-row items-center justify-center gap-40">
+        {/*Left List */}
+        <div className="flex flex-col gap-6">
+          {skill1.map((skill, index) => {
+            const skillName = Object.keys(skill)[0];
+            const skillLevel = skill[skillName];
+            return (
+              <div className="flex flex-row gap-9" key={index}>
+                <div className=" w-24">{skillName}</div>
+                <AnimatedStars skillLevel={skillLevel} />
+              </div>
+            );
+          })}
+        </div>
+
+        {/*Right List */}
+        <div className=" flex flex-col gap-6">
+          {skill2.map((skill, index) => {
+            const skillName = Object.keys(skill)[0];
+            const skillLevel = skill[skillName];
+            return (
+              <div className="flex flex-row gap-9" key={index}>
+                <div className=" w-24">{skillName}</div>
+                <AnimatedStars skillLevel={skillLevel} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

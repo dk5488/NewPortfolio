@@ -8,7 +8,7 @@ function ContactForm() {
     console.log(e);
     e.preventDefault();
     try {
-      await axiosInstance.post('/contact',e);
+      await axiosInstance.post('/contact',e.target);
       alert("Query Submitted successfully")
     } catch (error) {
       console.log("Message not send",error);
