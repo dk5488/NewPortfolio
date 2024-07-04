@@ -192,12 +192,34 @@ module.exports = {
             transform: "translate(0,0)",
           },
         },
+
+        leftToRight:{
+          "0%":{
+            left:"0%"
+          },
+          "100%":{
+            left:"50%"
+          },
+          
+        },
+
+        rightToLeft:{
+          "0%":{
+            right:"0%"
+          },
+          "100%":{
+            right:"50%"
+          },
+          
+        }
       },
       animation: {
         moveIcon: "moveIcon 6s linear infinite",
         facus: "facus 5s linear infinite",
         rotate:"rotate 4s linear infinite",
-        moveIcon1:"moveIcon1 6s linear infinite"
+        moveIcon1:"moveIcon1 6s linear infinite",
+        leftToRight:"leftToRight 5s linear forwards",
+        rightToLeft:"rightToLeft 5s linear forwards"
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',

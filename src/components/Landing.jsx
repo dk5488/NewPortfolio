@@ -10,9 +10,11 @@ import dev from "../assets/new_dev.png";
 import ContactUsForm from "../components/ContactUsForm";
 import arrow from "../assets/rotated_arrow.png";
 import { skills1 as skill1 } from "../data/skillList1.js";
-import {skills2 as skill2} from "../data/skillList2.js";
+import { skills2 as skill2 } from "../data/skillList2.js";
 import ReactStars from "react-stars";
 import AnimatedStars from "./AnimatedStars.jsx";
+import skillArrow from "../assets/skillArrow.png";
+
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
@@ -236,33 +238,40 @@ function Landing() {
       </div>
 
       {/* Skills Section */}
-      <div className=" flex flex-row items-center justify-center gap-40">
-        {/*Left List */}
-        <div className="flex flex-col gap-6">
-          {skill1.map((skill, index) => {
-            const skillName = Object.keys(skill)[0];
-            const skillLevel = skill[skillName];
-            return (
-              <div className="flex flex-row gap-9" key={index}>
-                <div className=" w-24">{skillName}</div>
-                <AnimatedStars skillLevel={skillLevel} />
-              </div>
-            );
-          })}
-        </div>
+      <div>
+        <div className="flex flex-row items-center justify-center gap-3" >
+          <h1 className=" animate-leftToRight absolute">My Skills</h1>
+          <img src={skillArrow} alt="arrow-left"  className=" w-16 absolute animate-rightToLeft" />
 
-        {/*Right List */}
-        <div className=" flex flex-col gap-6">
-          {skill2.map((skill, index) => {
-            const skillName = Object.keys(skill)[0];
-            const skillLevel = skill[skillName];
-            return (
-              <div className="flex flex-row gap-9" key={index}>
-                <div className=" w-24">{skillName}</div>
-                <AnimatedStars skillLevel={skillLevel} />
-              </div>
-            );
-          })}
+        </div>
+        <div className=" flex flex-row items-center justify-center gap-40">
+          {/*Left List */}
+          <div className="flex flex-col gap-6">
+            {skill1.map((skill, index) => {
+              const skillName = Object.keys(skill)[0];
+              const skillLevel = skill[skillName];
+              return (
+                <div className="flex flex-row gap-9" key={index}>
+                  <div className=" w-24">{skillName}</div>
+                  <AnimatedStars skillLevel={skillLevel} />
+                </div>
+              );
+            })}
+          </div>
+
+          {/*Right List */}
+          <div className=" flex flex-col gap-6">
+            {skill2.map((skill, index) => {
+              const skillName = Object.keys(skill)[0];
+              const skillLevel = skill[skillName];
+              return (
+                <div className="flex flex-row gap-9" key={index}>
+                  <div className=" w-24">{skillName}</div>
+                  <AnimatedStars skillLevel={skillLevel} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
