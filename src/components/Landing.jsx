@@ -21,23 +21,28 @@ function Landing() {
   const [isFormVisible, setFormVisible] = useState(false);
   const [isAnimVisible, setAnimVisible] = useState(false);
   const formRef = useRef();
-  const animRef = useRef();
+  const animRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && animRef.current) {
           setAnimVisible(true);
-          observer.disconnect();
+          console.log(isAnimVisible);
+          
+        }
+        else{
+          setAnimVisible(false);
         }
       },
       { threshold: 0.5 }
     );
-    observer.observe(animRef.current)
 
-    return ()=>{
-      observer.disconnect();
+    if (animRef.current) {
+      observer.observe(animRef.current);
     }
+
+    
   }, []);
 
   function handleClick() {
@@ -257,17 +262,23 @@ function Landing() {
 
       {/* Skills Section */}
       <div>
-        {isAnimVisible && (
-          <div className="flex flex-row items-center justify-center gap-3" ref={animRef}>
-            <h1 className=" animate-leftToRight absolute" >My Skills</h1>
-            <img
-              src={skillArrow}
-              alt="arrow-left"
-              className=" w-16 absolute animate-rightToLeft"
-              
-            />
-          </div>
-        )}
+        <div
+          className="flex flex-row items-center justify-center gap-3"
+          ref={animRef}
+        >
+          <h1
+            className={`absolute ${isAnimVisible ? "animate-leftToRight" : ""}`}
+          >
+            My Skills
+          </h1>
+          <img
+            src={skillArrow}
+            alt="arrow-left"
+            className={`absolute w-16 ${
+              isAnimVisible ? "animate-rightToLeft" : ""
+            }`}
+          />
+        </div>
 
         <div className=" flex flex-row items-center justify-center gap-40">
           {/*Left List */}
