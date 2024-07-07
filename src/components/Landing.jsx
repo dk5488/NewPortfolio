@@ -15,12 +15,30 @@ import ReactStars from "react-stars";
 import AnimatedStars from "./AnimatedStars.jsx";
 import skillArrow from "../assets/skillArrow.png";
 
-
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
   const typeAnimRef = useRef(null);
   const [isFormVisible, setFormVisible] = useState(false);
+  const [isAnimVisible, setAnimVisible] = useState(false);
   const formRef = useRef();
+  const animRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(animRef.current)
+
+    return ()=>{
+      observer.disconnect();
+    }
+  }, []);
 
   function handleClick() {
     setFormVisible(true);
@@ -239,11 +257,18 @@ function Landing() {
 
       {/* Skills Section */}
       <div>
-        <div className="flex flex-row items-center justify-center gap-3" >
-          <h1 className=" animate-leftToRight absolute">My Skills</h1>
-          <img src={skillArrow} alt="arrow-left"  className=" w-16 absolute animate-rightToLeft" />
+        {isAnimVisible && (
+          <div className="flex flex-row items-center justify-center gap-3" ref={animRef}>
+            <h1 className=" animate-leftToRight absolute" >My Skills</h1>
+            <img
+              src={skillArrow}
+              alt="arrow-left"
+              className=" w-16 absolute animate-rightToLeft"
+              
+            />
+          </div>
+        )}
 
-        </div>
         <div className=" flex flex-row items-center justify-center gap-40">
           {/*Left List */}
           <div className="flex flex-col gap-6">
