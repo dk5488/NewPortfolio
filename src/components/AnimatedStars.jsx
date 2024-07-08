@@ -12,16 +12,17 @@ const AnimatedStars = ({ skillLevel }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing once it's visible
+          
+        }
+        else{
+          setIsVisible(false);
         }
       },
       { threshold: 0.5 } // Trigger when 50% of the element is visible
     );
     observer.observe(ref.current);
 
-    return () => {
-      observer.disconnect();
-    };
+    
   }, []);
 
   useEffect(() => {

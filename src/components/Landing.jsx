@@ -263,7 +263,7 @@ function Landing() {
       {/* Skills Section */}
       <div>
         <div
-          className="flex flex-row items-center justify-center gap-3"
+          className="flex flex-row items-center justify-center gap-3 mb-14"
           ref={animRef}
         >
           <h1
@@ -309,6 +309,11 @@ function Landing() {
             })}
           </div>
         </div>
+      </div>
+
+      {/*Projects Section */}
+      <div>
+        
       </div>
     </div>
   );
