@@ -14,6 +14,8 @@ import { skills2 as skill2 } from "../data/skillList2.js";
 import ReactStars from "react-stars";
 import AnimatedStars from "./AnimatedStars.jsx";
 import skillArrow from "../assets/skillArrow.png";
+import { ProjectData } from "../data/project.js";
+import ProjectCard from "./ProjectCard.jsx";
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
@@ -29,9 +31,7 @@ function Landing() {
         if (entry.isIntersecting && animRef.current) {
           setAnimVisible(true);
           console.log(isAnimVisible);
-          
-        }
-        else{
+        } else {
           setAnimVisible(false);
         }
       },
@@ -41,8 +41,6 @@ function Landing() {
     if (animRef.current) {
       observer.observe(animRef.current);
     }
-
-    
   }, []);
 
   function handleClick() {
@@ -313,7 +311,17 @@ function Landing() {
 
       {/*Projects Section */}
       <div>
-        
+        {ProjectData.map((data, index) => (
+          <div>
+            <ProjectCard
+              key={index}
+              image={data.image}
+              name={data.name}
+              left={data.left}
+              link={data.link}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
