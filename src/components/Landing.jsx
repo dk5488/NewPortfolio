@@ -310,9 +310,9 @@ function Landing() {
       </div>
 
       {/*Projects Section */}
-      <div>
+      <div className=" mt-10 flex flex-col items-center justify-center relative">
         {ProjectData.map((data, index) => (
-          <div>
+          <div className={` grid grid-cols-1 justify-center items-center ${data.left?'left-0':'right-0'}`}>
             <ProjectCard
               key={index}
               image={data.image}

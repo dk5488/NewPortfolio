@@ -8,11 +8,11 @@ function ProjectCard({key,image,name,left,link}){
 
 
     return(
-        <div className={`flex flex-row relative w-auto ${Left?'left-0':'right-0'}`}>
-           <a href={Link}>
+        <div className={`flex flex-row relative w-auto  gap-28`}>
+           <a href={Link} target="_blank">
             <img src={Image} alt="Project" className="w-52"/>
            </a>
-           <h1>{Name}</h1>
+           <h1 className=" w-14">{Name}</h1>
         </div>
     )
 
