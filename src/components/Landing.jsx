@@ -310,24 +310,33 @@ function Landing() {
       </div>
 
       {/*Projects Section */}
-      <div className=" w-10/12 mx-auto">
-        <div className=" mt-10 flex flex-col items-center justify-center  relative">
+      <div className="w-full mx-auto relative">
+        <div className="mt-10 relative w-3/4 mx-auto flex flex-col items-center gap-10">
           {ProjectData.map((data, index) => (
             <div
-              className={` grid grid-cols-1 justify-center items-center `}
               key={index}
+              className={`relative mx-auto transition-transform ${
+                data.left
+                  ? "transform -translate-x-10"
+                  : "transform translate-x-10"
+              }`}
             >
               <ProjectCard
-                key={index}
                 image={data.image}
                 name={data.name}
                 left={data.left}
                 link={data.link}
               />
-              {console.log("position:",data.left)}
             </div>
           ))}
         </div>
+      </div>
+
+
+      {/*Contact Me */}
+      <div className=" w-1/2 mx-auto mt-5">
+        <h1 className=" translate-x-1/2">Contact Me</h1>
+        <ContactUsForm/>
       </div>
     </div>
   );
