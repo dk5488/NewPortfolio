@@ -1,8 +1,36 @@
 import React from "react";
+import { useState,useEffect,useRef } from "react";
 
 function ProjectPageGrid({ imager, name, link, desc }) {
+
+  const [isAnimVisible,setAnimVisible]=useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && animRef.current) {
+          setAnimVisible(true);
+          console.log(isAnimVisible);
+          
+        }
+        else{
+          setAnimVisible(false);
+        }
+
+      },
+      { threshold: 0.5 }
+    );
+
+    if (animRef.current) {
+      observer.observe(animRef.current);
+    }
+  }, []);
+  
+  const animRef=useRef(null);
+
   return (
-    <div className="flex flex-col w-80 h-96 hover:border-4 hover:border-black overflow-hidden transition ease-in-out duration-150">
+
+    <div className={`flex flex-col w-80 h-96 hover:border-4 hover:border-black overflow-hidden transition   ease-in-out duration-150 ${isAnimVisible?'opacity-1':'opacity-0'}`} ref={animRef}>
       <a href={link} className="flex-shrink-0 h-2/3">
         <img
           src={imager}

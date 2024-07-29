@@ -211,7 +211,16 @@ module.exports = {
             right:"45%"
           },
           
-        }
+        },
+
+        downToUp:{
+          "0%":{
+            opacity:'0'
+          },
+          "100%":{
+            opacity:'1'
+          }
+        },
       },
       animation: {
         moveIcon: "moveIcon 6s linear infinite",
@@ -219,7 +228,8 @@ module.exports = {
         rotate:"rotate 4s linear infinite",
         moveIcon1:"moveIcon1 6s linear infinite",
         leftToRight:"leftToRight 2s ease-out forwards",
-        rightToLeft:"rightToLeft 2s ease-out forwards"
+        rightToLeft:"rightToLeft 2s ease-out forwards",
+        downToUp:"downToUp 1s ease-in",
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',

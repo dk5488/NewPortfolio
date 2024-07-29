@@ -27,7 +27,8 @@ const projectPageData=[
         "name":"Tic Tac Toe",
         "link":"https://ticxtacxtoe.vercel.app/",
         "desc":"Developed with JavaScript, it offers a fun and interactive experience. With a sleek interface and smooth gameplay, it provides hours of entertainment for players of all ages. Enjoy challenging your friends or improving your skills against the computer."
-    }
+    },
+
 ]
 
 export const ProjectPageData=projectPageData

@@ -4,6 +4,7 @@ import ProjectPageGrid from "./projectPageGrid";
 
 function Projects() {
   return (
+    
     <div className=" overflow-x-hidden max-w-full">
       {/*Project Section */}
       <div>
