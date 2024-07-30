@@ -51,7 +51,9 @@ function About() {
       {/*Contact Me */}
       <div className=' mt-9 flex flex-col justify-center items-center '>
         <h1>Contact Me</h1>
-        <ContactUsForm/>
+        <div style={{ width: '40%' }}>
+          <ContactUsForm />
+        </div>
       </div>
     </div>
   )
