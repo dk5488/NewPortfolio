@@ -16,6 +16,7 @@ import AnimatedStars from "./AnimatedStars.jsx";
 import skillArrow from "../assets/skillArrow.png";
 import { ProjectData } from "../data/project.js";
 import ProjectCard from "./ProjectCard.jsx";
+import { motion } from "framer-motion";
 
 function Landing() {
   const [renderNumber, setRenderNumber] = useState(1);
@@ -243,9 +244,15 @@ function Landing() {
               utilizing these technologies.
             </p>
 
-            <button className=" bg-cerise-red-500" onClick={handleClick}>
+            <motion.button
+              className=" bg-cerise-red-500 box"
+              onClick={handleClick}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
               Contact Me
-            </button>
+            </motion.button>
             {isFormVisible && (
               <div
                 className=" absolute flex-col top-0 w-1/4 -translate-x-52"
@@ -332,11 +339,10 @@ function Landing() {
         </div>
       </div>
 
-
       {/*Contact Me */}
       <div className=" w-1/2 mx-auto mt-5">
         <h1 className=" translate-x-1/2">Contact Me</h1>
-        <ContactUsForm/>
+        <ContactUsForm />
       </div>
     </div>
   );
